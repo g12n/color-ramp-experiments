@@ -1,2 +1,4 @@
 # color-ramp-experiments
-Exploting different techniques for creating color ramps in Design Systems
+Exploring different techniques for creating color ramps in Design Systems.
+
+

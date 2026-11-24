@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Color Ramp Experiments</title>
+		<script src="/importmap.js"></script>
+
+		<style>
+			:root {
+				--color-bg:light-dark( oklch(0.958 0.01 2.46),  oklch(0.258 0.01 282.46));
+				--color-txt: contrast-color(var(--color-bg));
+				--color-surface: color-mix(
+					in OKLCH,
+					var(--color-txt) 10%,
+					var(--color-bg)
+				);
+                color-scheme: light dark;
+			}
+
+			body {
+                
+				color: var(--color-txt);
+				background-color: var(--color-bg);
+				text-align: center;
+				font-family: system-ui;
+			}
+			h1 {
+				font-weight: 200;
+			}
+			color-ramp {
+                
+				--hue: 200;
+				--ramp-padding: 1cqw;
+				--swatch-radius: 2cqw;
+				--ramp-gap: calc(var(--ramp-padding) / 2);
+				--ramp-border-radius: calc(var(--swatch-radius) + var(--ramp-padding));
+
+				container-type: inline-size;
+
+                width: clamp(280px, 80vw, 900px) ;
+
+				display: flex;
+				gap: var(--ramp-padding);
+				padding: var(--ramp-border-radius);
+				border-radius: var(--ramp-border-radius);
+                margin-inline: auto;
+				margin-block: calc(var(--ramp-border-radius));
+				background-color: var(--color-surface);
+			}
+			color-swatch {
+				--lightness: calc(1 - (1/sibling-count()) * sibling-index());
+				--value: oklch(var(--lightness) 0.1 var(--hue));
+
+				display: block;
+				aspect-ratio: 1;
+				flex-grow: 1;
+				border-radius: var(--swatch-radius);
+
+				background-color: var(--value);
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Color Ramp Test</h1>
+		<color-ramp style="--hue: 100">
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+		</color-ramp>
+		<color-ramp style="--hue: 0">
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+			<color-swatch></color-swatch>
+		</color-ramp>
+	</body>
+</html>

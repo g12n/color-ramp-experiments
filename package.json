@@ -1,0 +1,17 @@
+{
+  "name": "color-ramp-experiments",
+  "version": "1.0.0",
+  "description": "Exploring different techniques for creating color ramps in Design Systems.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dependencies": "nudeps",
+    "prepare": "nudeps"
+  },
+  "devDependencies": {
+    "nudeps": "^0.4.4"
+  }
+}
